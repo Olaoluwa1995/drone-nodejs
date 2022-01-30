@@ -1,5 +1,5 @@
 const { v4 } = require('uuid');
-const DroneRepository = require('../repositories/drone-respository');
+const DroneRepository = require('../repositories/drone-repository');
 const { serviceResponse } = require('../utilities/response');
 
 class DroneService {
