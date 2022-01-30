@@ -1,0 +1,30 @@
+{
+  "name": "drones",
+  "version": "1.0.0",
+  "description": "Creating drones for delivering medications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://oauth:glpat-5u9GU-DzCyxdszCFusG3@gitlab.com/musala-coding-tasks-solutions/stephen-olakulehin.git"
+  },
+  "keywords": [
+    "Drones",
+    "medications"
+  ],
+  "author": "Olakulehin Stephen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/musala-coding-tasks-solutions/stephen-olakulehin/issues"
+  },
+  "homepage": "https://gitlab.com/musala-coding-tasks-solutions/stephen-olakulehin#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8",
+    "morgan": "^1.10.0"
+  }
+}
