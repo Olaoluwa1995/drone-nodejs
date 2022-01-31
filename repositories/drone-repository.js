@@ -15,6 +15,10 @@ class DroneRepository {
         const drone = await Drone.findOne({ droneId });
         return drone;
     }
+    static async findAll () {
+        const drone = await Drone.find({});
+        return drone;
+    }
 
     static async findBySerialNumber (serialNumber) {
         const drone = await Drone.findOne({serialNumber});
@@ -24,6 +28,11 @@ class DroneRepository {
     static async findDroneMed (droneId) {
        const meds = await Medication.find({ droneId });
        return meds
+    }
+
+    static async findAvailableDrones() {
+        const drones = await Drone.find({ state: 'LOADING' });
+        return drones;
     }
 }
 
