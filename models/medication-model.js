@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
 const MedicationSchema = new mongoose.Schema({
+    droneId: {
+        type: String,
+        required: true,
+    },
     name: {
         type: String,
         validate: /^[A-Za-z0-9_-]*$/,
         required: true,
     },
     weight: {
-        type: String,
+        type: Number,
         required: true,
     },
     code: {
