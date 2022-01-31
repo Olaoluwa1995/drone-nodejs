@@ -18,10 +18,6 @@ module.exports = {
             .isInt({ max: 100 })
             .withMessage('batteryCapacity must be an integer within 100')
             .notEmpty(),
-        body('state')
-            .isString()
-            .isIn(['IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING'])
-            .notEmpty(),
     ],
 
     medSchema: () => [
@@ -43,5 +39,12 @@ module.exports = {
             .matches(/^[A-Z0-9_]*$/)
             .withMessage('code can only upper case letters, underscore and numbers')
             .notEmpty()
+    ],
+
+    droneIdSchema: () => [
+        param('droneId')
+            .isUUID()
+            .withMessage('droneId must be a valid UUID')
+            .notEmpty(),
     ]
 }
