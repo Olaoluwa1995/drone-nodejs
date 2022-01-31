@@ -15,8 +15,8 @@ class DroneService {
             };
             const createdDrone = await DroneRepository.create(newDrone);
             return serviceResponse(201, 'Successfully created drone', createdDrone);
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            logger.error(error);
         }
     }
 
@@ -47,7 +47,7 @@ class DroneService {
             const loadMed = await DroneRepository.createMed({...medToLoad, image, droneId});
             return serviceResponse(201, 'Successfully loaded drone with medication', loadMed);
         } catch (error) {
-            console.log(error);
+            logger.info(error);
         }
     }
 
@@ -59,7 +59,7 @@ class DroneService {
             const loadedItems = await DroneRepository.findDroneMed(droneId);
             return serviceResponse(200, 'Successfully feched drone medications', loadedItems);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -72,7 +72,7 @@ class DroneService {
             }
             return serviceResponse(200, 'Successfully feched drone battery', batteryLevel);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -81,7 +81,7 @@ class DroneService {
             const availableDrones = await DroneRepository.findAvailableDrones();
             return serviceResponse(200, 'Succcessfully fetched available drones', availableDrones);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -93,7 +93,7 @@ class DroneService {
             })
             return;
         } catch (error) {
-            console.log(err);
+            logger.error(error);
         }
     }
 }
