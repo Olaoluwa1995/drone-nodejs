@@ -11,5 +11,16 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
+    },
+
+    loadDrone: async (req, res) => {
+        try {
+            const { body, files, params } = req;
+            const { status, message, data } = await DroneService.loadDrone(body, files, params.droneId);
+            if(status > 400) return errorResponseMsg(res, status, message);
+            return successResponseMsg(res, status, message, data);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
