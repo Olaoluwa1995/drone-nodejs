@@ -28,6 +28,7 @@ const DroneSchema = new mongoose.Schema({
     state: {
         type: String,
         enum: ['IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING'],
+        default: 'IDLE',
         required: true,
     }
 });
