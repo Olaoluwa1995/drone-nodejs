@@ -22,5 +22,37 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+
+    getDroneMedItem: async (req, res) => {
+        try {
+            const { params } = req;
+            const { status, message, data } = await DroneService.getLoadedDroneItems(params.droneId);
+            if(status > 400) return errorResponseMsg(res, status, message);
+            return successResponseMsg(res, status, message, data);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    getDroneBatteryLevel: async (req, res) => {
+        try {
+            const { params } = req;
+            const { status, message, data } = await DroneService.getDroneBatteryLevel(params.droneId);
+            if(status > 400) return errorResponseMsg(res, status, message);
+            return successResponseMsg(res, status, message, data);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    getAvailableDrones: async (req, res) => {
+        try {
+            const { status, message, data } = await DroneService.getAvailableDrones();
+            if(status > 400) return errorResponseMsg(res, status, message);
+            return successResponseMsg(res, status, message, data); 
+        } catch (error) {
+            console.log(error);
+        }
+    },
 }
