@@ -1,3 +1,4 @@
+const logger = require("../config/logger");
 const DroneService = require("../services/drone-service");
 const { errorResponseMsg, successResponseMsg } = require("../utilities/response");
 
@@ -9,7 +10,7 @@ module.exports = {
             if (status > 400) return errorResponseMsg(res, status, message)
             return successResponseMsg(res, status, message, data);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     },
 
@@ -20,7 +21,7 @@ module.exports = {
             if(status > 400) return errorResponseMsg(res, status, message);
             return successResponseMsg(res, status, message, data);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     },
 
@@ -31,7 +32,7 @@ module.exports = {
             if(status > 400) return errorResponseMsg(res, status, message);
             return successResponseMsg(res, status, message, data);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     },
 
@@ -42,7 +43,7 @@ module.exports = {
             if(status > 400) return errorResponseMsg(res, status, message);
             return successResponseMsg(res, status, message, data);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     },
 
@@ -52,7 +53,7 @@ module.exports = {
             if(status > 400) return errorResponseMsg(res, status, message);
             return successResponseMsg(res, status, message, data); 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     },
 }
