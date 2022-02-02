@@ -6,6 +6,24 @@
 
 :scroll: **START**
 
+### Run Instructions
+
+1. Clone project
+
+   - git clone https://oauth:glpat-5u9GU-DzCyxdszCFusG3@gitlab.com/musala-coding-tasks-solutions/stephen-olakulehin.git
+   - git pull origin develop
+
+2. Install dependencies
+
+   - npm install
+
+3. Run project
+
+   - npm start
+
+4. Run test
+
+   - npm test
 
 ### Introduction
 
@@ -20,34 +38,51 @@ Useful drone functions include delivery of small items that are (urgently) neede
 We have a fleet of **10 drones**. A drone is capable of carrying devices, other than cameras, and capable of delivering small loads. For our use case **the load is medications**.
 
 A **Drone** has:
+
 - serial number (100 characters max);
 - model (Lightweight, Middleweight, Cruiserweight, Heavyweight);
 - weight limit (500gr max);
 - battery capacity (percentage);
 - state (IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING).
 
-Each **Medication** has: 
-- name (allowed only letters, numbers, ‘-‘, ‘_’);
+Each **Medication** has:
+
+- name (allowed only letters, numbers, ‘-‘, ‘\_’);
 - weight;
 - code (allowed only upper case letters, underscore and numbers);
 - image (picture of the medication case).
 
-Develop a service via REST API that allows clients to communicate with the drones (i.e. **dispatch controller**). The specific communicaiton with the drone is outside the scope of this task. 
+Develop a service via REST API that allows clients to communicate with the drones (i.e. **dispatch controller**). The specific communicaiton with the drone is outside the scope of this task.
 
 The service should allow:
+
 - registering a drone;
+
+# 'http://localhost:3001/drone/'
+
 - loading a drone with medication items;
-- checking loaded medication items for a given drone; 
+
+# 'http://localhost:3001/drone/:droneId/load'
+
+- checking loaded medication items for a given drone;
+
+# 'http://localhost:3001/drone/:droneId/med'
+
 - checking available drones for loading;
+
+# 'http://localhost:3001/drone/'
+
 - check drone battery level for a given drone;
 
-> Feel free to make assumptions for the design approach. 
+# 'http://localhost:3001/drone/:droneId/battery'
+
+> Feel free to make assumptions for the design approach.
 
 ---
 
 ### Requirements
 
-While implementing your solution **please take care of the following requirements**: 
+While implementing your solution **please take care of the following requirements**:
 
 #### Functional requirements
 
