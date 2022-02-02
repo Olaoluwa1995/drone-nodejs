@@ -5,7 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest --testTimeout=10000 --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "*/.{js}",
+      "!*/node_modules/*",
+      "!*/tools/*",
+      "!*/build/*",
+      "!*/docs/*"
+    ]
   },
   "repository": {
     "type": "git",
@@ -33,5 +43,9 @@
     "uuid": "^8.3.2",
     "winston": "^3.5.0",
     "winston-daily-rotate-file": "^4.6.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "supertest": "^6.2.2"
   }
 }
