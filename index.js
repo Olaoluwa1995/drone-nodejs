@@ -1,31 +1,18 @@
-require('dotenv').config();
-require('./cronjobs');
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const fileUpload = require('express-fileupload');
-const { port } = require('./config');
+const app = require('./app');
 const database = require('./config/database');
-const route = require('./routes');
+const { port } = require('./config');
+const { BatteryCheckJob } = require('./cronjobs');
 
 const startServer = async () => {
-    try {
-        const app = express();
-        app.use(cors());
-        app.use(morgan('dev'));
-        app.use(fileUpload({
-            createParentPath: true,
-        }));
-        app.use(express.json());
-
-        app.use(route)
-        await database.connect();
-        app.listen(port, () => {
-            console.log(`App is running on ${port}!`);
-        })
-    } catch (error) {
-        console.log(error);
+  await database.connect();
+  app.listen(port, (err) => {
+    if (err) {
+      console.log(err);
+      return;
     }
-}
+    BatteryCheckJob.start();
+    console.log(`Bot listenenig on port ${port}`);
+  });
+};
 
 startServer();
