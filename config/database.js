@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
-const { mongodbUri } = require('.');
 
+const MONGODBURI = process.env.NODE_ENV === 'test'
+  ? process.env.MONGO_URI_TEST
+  : process.env.MONGO_URI
+  
 module.exports = {
   connect: async () => {
     mongoose
-      .connect(mongodbUri, {
+      .connect(MONGODBURI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
       })
