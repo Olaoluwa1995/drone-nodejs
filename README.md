@@ -12,6 +12,8 @@
 
    - git clone https://oauth:glpat-5u9GU-DzCyxdszCFusG3@gitlab.com/musala-coding-tasks-solutions/stephen-olakulehin.git
    - git pull origin develop
+   - Create an .env file and copy all credentials in .env.example
+   - Note: Credential values should not be pushed to Github but for the sake of testing, that's why I'm doing this
 
 2. Install dependencies
 
