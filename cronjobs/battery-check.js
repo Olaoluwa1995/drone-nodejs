@@ -9,5 +9,5 @@ var job = new CronJob({
         start: false, //don't start immediately
         timeZone: 'America/Los_Angeles'
     });
-    
-job.start()
+
+module.exports = job;
